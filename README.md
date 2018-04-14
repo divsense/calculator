@@ -3,19 +3,19 @@ Divsense Calculator Extension
 
 ### Avalaible nobs
 
-* *sum*
+* `sum`
 
   Calculates total of its inputs
 
-* *prod*
+* `prod`
 
   Calculates product of its inputs
 
-* *divide*
+* `divide`
 
   Divides predessor by its successor
 
-* *sub*
+* `sub`
 
   Subtrack successor from its predessor
 
