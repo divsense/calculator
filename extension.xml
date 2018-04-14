@@ -1,0 +1,94 @@
+<xml>
+    <extension name="calc" title="Calculator" version="1.0">
+
+        <options>
+            <item name="precision" value="2" title="Precision"></item>
+        </options>
+
+        <lib name="a" type="rio" src="producer.rio"/>
+
+        <etag-class consumer="true" default-value="0" content="product">
+
+            <settings>
+                <item name="precision" value="2" title="Precision"></item>
+            </settings>
+
+            <etag name="sum"
+                decor-head-text=""
+                decor-tail-text-right="&#8592; &#8721;"
+                decor-tail-text-left="&#8721; &#8594;">
+
+                <produce method="summa" lib="a"/>
+            </etag>
+
+            <etag name="prod"
+                decor-head-text=""
+                decor-tail-text-right="&#8592; &#8719;"
+                decor-tail-text-left="&#8719; &#8594;">
+                <produce method="prod" lib="a"/>
+            </etag>
+
+            <etag name="divide"
+                decor-head-text=""
+                decor-tail-text-right="&#8592; divide"
+                decor-tail-text-left="divide &#8594;">
+                <produce method="divideBy" lib="a"/>
+            </etag>
+
+            <etag name="sub"
+                decor-head-text=""
+                decor-tail-text-right="&#8592; subtract"
+                decor-tail-text-left="subtract &#8594;">
+                <produce method="sub" lib="a"/>
+            </etag>
+
+            <etag name="percent"
+                decor-head-text=""
+                decor-tail-text-right="&#8592; %"
+                decor-tail-text-left="% &#8594;">
+                <produce method="percent" lib="a"/>
+            </etag>
+
+            <etag name="sin"
+                decor-head-text=""
+                decor-tail-text-right="&#8592; sin"
+                decor-tail-text-left="sin &#8594;">
+                <produce method="sinus" lib="a"/>
+            </etag>
+
+            <etag name="cos"
+                decor-head-text=""
+                decor-tail-text-right="&#8592; cos"
+                decor-tail-text-left="cos &#8594;">
+                <produce method="cosinus" lib="a"/>
+            </etag>
+
+            <etag name="log"
+                decor-head-text=""
+                decor-tail-text-right="&#8592; log"
+                decor-tail-text-left="log &#8594;">
+                <produce method="logarithm" lib="a"/>
+            </etag>
+
+            <etag name="sqrt"
+                decor-head-text=""
+                decor-tail-text-right="&#8592; &#8730;"
+                decor-tail-text-left="&#8730; &#8594;">
+                <produce method="radic" lib="a"/>
+            </etag>
+
+            <etag name="phi"
+                decor-head-text=""
+                decor-tail-text-right="&#8592; phi"
+                decor-tail-text-left="phi &#8594;">
+
+                <init-content>
+                    <divide><sum><text>1</text><sqrt><text>5</text></sqrt></sum><text>2</text></divide>
+                </init-content>
+
+                <produce method="trans" lib="a"/>
+            </etag>
+        </etag-class>
+
+    </extension>
+</xml>

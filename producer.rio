@@ -1,0 +1,49 @@
+// Divsense Calculator Producer
+
+export divideBy, sub, summa, prod, sinus, cosinus,
+       logarithm, radic, percent, trans
+
+import 'math'
+
+toPrecision = invoker(1, 'toPrecision')
+
+result = value -> ({value})
+
+pvalue = map(prop('value'))
+
+outp = f -> (result . f . pvalue)
+
+onearg = f -> outp( toPrecision(4) . f . head )
+
+cumulative = f -> inputs -> {
+    xs = pvalue(inputs)
+
+    return result(reduce(f, head(xs), tail(xs)))
+}
+
+divideBy = cumulative( divide )
+sub = cumulative( subtract )
+
+// summa :: [{value::Number}] -> Number
+summa = outp( sum )
+
+// prod :: [{value::Number}] -> Number
+prod = outp( product )
+
+// simus :: [{value::Number}] -> Number
+sinus = onearg(sin)
+cosinus = onearg(cos)
+logarithm = onearg(log)
+radic = onearg(sqrt)
+
+// percent :: [{value::Number}] -> Number
+percent = inputs -> {
+    data = pvalue(inputs)
+    a = nth(0, data)
+    b = nth(1, data)
+
+    return result( a/b * 100 )
+}
+
+trans = head
+
