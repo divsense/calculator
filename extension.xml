@@ -7,77 +7,77 @@
 
         <lib name="a" type="rio" src="producer.rio"/>
 
-        <etag-class consumer="true" default-value="0" content="product">
+        <nob-class consumer="true" default-value="0" content="product">
 
             <settings>
                 <item name="precision" value="2" title="Precision"></item>
             </settings>
 
-            <etag name="sum"
+            <nob name="sum"
                 decor-head-text=""
                 decor-tail-text-right="&#8592; &#8721;"
                 decor-tail-text-left="&#8721; &#8594;">
 
                 <produce method="summa" lib="a"/>
-            </etag>
+            </nob>
 
-            <etag name="prod"
+            <nob name="prod"
                 decor-head-text=""
                 decor-tail-text-right="&#8592; &#8719;"
                 decor-tail-text-left="&#8719; &#8594;">
                 <produce method="prod" lib="a"/>
-            </etag>
+            </nob>
 
-            <etag name="divide"
+            <nob name="divide"
                 decor-head-text=""
                 decor-tail-text-right="&#8592; divide"
                 decor-tail-text-left="divide &#8594;">
                 <produce method="divideBy" lib="a"/>
-            </etag>
+            </nob>
 
-            <etag name="sub"
+            <nob name="sub"
                 decor-head-text=""
                 decor-tail-text-right="&#8592; subtract"
                 decor-tail-text-left="subtract &#8594;">
                 <produce method="sub" lib="a"/>
-            </etag>
+            </nob>
 
-            <etag name="percent"
+            <nob name="percent"
                 decor-head-text=""
                 decor-tail-text-right="&#8592; %"
                 decor-tail-text-left="% &#8594;">
                 <produce method="percent" lib="a"/>
-            </etag>
+            </nob>
 
-            <etag name="sin"
+            <nob name="sin"
                 decor-head-text=""
                 decor-tail-text-right="&#8592; sin"
                 decor-tail-text-left="sin &#8594;">
                 <produce method="sinus" lib="a"/>
-            </etag>
+            </nob>
 
-            <etag name="cos"
+            <nob name="cos"
                 decor-head-text=""
                 decor-tail-text-right="&#8592; cos"
                 decor-tail-text-left="cos &#8594;">
                 <produce method="cosinus" lib="a"/>
-            </etag>
+            </nob>
 
-            <etag name="log"
+            <nob name="log"
                 decor-head-text=""
                 decor-tail-text-right="&#8592; log"
                 decor-tail-text-left="log &#8594;">
                 <produce method="logarithm" lib="a"/>
-            </etag>
+            </nob>
 
-            <etag name="sqrt"
+            <nob name="sqrt"
                 decor-head-text=""
                 decor-tail-text-right="&#8592; &#8730;"
                 decor-tail-text-left="&#8730; &#8594;">
                 <produce method="radic" lib="a"/>
-            </etag>
+            </nob>
 
-            <etag name="phi"
+            <nob name="phi"
                 decor-head-text=""
                 decor-tail-text-right="&#8592; phi"
                 decor-tail-text-left="phi &#8594;">
@@ -87,8 +87,8 @@
                 </init-content>
 
                 <produce method="trans" lib="a"/>
-            </etag>
-        </etag-class>
+            </nob>
+        </nob-class>
 
     </extension>
 </xml>
