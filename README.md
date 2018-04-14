@@ -3,7 +3,7 @@ Divsense Calculator Extension
 
 ### Avalaible nobs
 
-* *sum*
+* `sum`
 
   Calculates total of its inputs
 
