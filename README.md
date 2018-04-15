@@ -4,19 +4,24 @@ Divsense Calculator Extension
 ### Available nobs
 
 * `sum`
-Calculates total of its inputs
+
+  Calculates total of its inputs
 
 * `prod`
-Calculates product of its inputs
+
+  Calculates product of its inputs
 
 * `divide`
-Division
+
+  Division
 
 * `sub`
-Subtraction
+
+  Subtraction
 
 * `phi`
-Phi number calculation example
+
+  Phi number calculation example
 
 
 
