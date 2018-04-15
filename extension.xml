@@ -5,7 +5,7 @@
             <item name="precision" value="2" title="Precision"></item>
         </options>
 
-        <lib name="a" type="rio" src="producer.rio"/>
+        <lib name="a" type="rio" src="mart::divsense/calc/producer"/>
 
         <nob-class consumer="true" default-value="0" content="product">
 
@@ -82,9 +82,11 @@
                 decor-tail-text-right="&#8592; phi"
                 decor-tail-text-left="phi &#8594;">
 
-                <init-content>
-                    <divide><sum><text>1</text><sqrt><text>5</text></sqrt></sum><text>2</text></divide>
-                </init-content>
+                <init>
+                    <content xmlns:calc="mart/divsense/calc">
+                        <calc:divide><calc:sum><text>1</text><calc:sqrt><text>5</text></calc:sqrt></calc:sum><text>2</text></calc:divide>
+                    </content>
+                </init>
 
                 <produce method="trans" lib="a"/>
             </nob>
