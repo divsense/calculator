@@ -1,7 +1,7 @@
-# Calculator
+# calc
 Divsense Calculator Extension
 
-### Avalaible nobs
+### Available nobs
 
 * `sum`
 
@@ -13,11 +13,15 @@ Divsense Calculator Extension
 
 * `divide`
 
-  Divides predessor by its successor
+  Division
 
 * `sub`
 
-  Subtrack successor from its predessor
+  Subtraction
+
+* `phi`
+
+  Phi number calculation example
 
 
 
