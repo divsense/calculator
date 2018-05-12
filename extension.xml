@@ -6,75 +6,100 @@
         </options>
 
         <lib name="a" type="rio" src="mart::divsense/calc/producer"/>
+        <lib name="dvs" type="rio" src="mart::divsense/calc/sense"/>
 
-        <nob-class consumer="true" default-value="0" content="product">
+        <nob-class
+            consumer="true"
+            default-product-value="0"
+            default-product-type="number"
+            content="product">
 
             <settings>
                 <item name="precision" value="2" title="Precision"></item>
             </settings>
+
+            <term name="number">
+                <match>
+                    <deny>
+                        <parent text="true"/>
+                    </deny>
+                    <body number="true" highlight="number"/>
+                </match>
+                <handle case="product" method="asNumber" lib="a"/>
+            </term>
+
+            <term name="comment" >
+                <match>
+                    <allow>
+                        <parent term="number"/>
+                    </allow>
+                    <body highlight="italic"/>
+                </match>
+            </term>
 
             <nob name="sum"
                 decor-head-text=""
                 decor-tail-text-right="&#8592; &#8721;"
                 decor-tail-text-left="&#8721; &#8594;">
 
-                <produce method="summa" lib="a"/>
+                <handle case="product" method="summa" lib="a"/>
+                <handle case="sense" method="summa" lib="dvs"/>
             </nob>
 
             <nob name="prod"
                 decor-head-text=""
                 decor-tail-text-right="&#8592; &#8719;"
                 decor-tail-text-left="&#8719; &#8594;">
-                <produce method="prod" lib="a"/>
+                <handle case="product" method="prod" lib="a"/>
             </nob>
 
             <nob name="divide"
                 decor-head-text=""
                 decor-tail-text-right="&#8592; divide"
                 decor-tail-text-left="divide &#8594;">
-                <produce method="divideBy" lib="a"/>
+                <handle case="product" method="divideBy" lib="a"/>
             </nob>
 
             <nob name="sub"
                 decor-head-text=""
                 decor-tail-text-right="&#8592; subtract"
                 decor-tail-text-left="subtract &#8594;">
-                <produce method="sub" lib="a"/>
+                <handle case="product" method="sub" lib="a"/>
             </nob>
 
             <nob name="percent"
                 decor-head-text=""
                 decor-tail-text-right="&#8592; %"
                 decor-tail-text-left="% &#8594;">
-                <produce method="percent" lib="a"/>
+                <handle case="product" method="percent" lib="a"/>
             </nob>
 
             <nob name="sin"
                 decor-head-text=""
                 decor-tail-text-right="&#8592; sin"
                 decor-tail-text-left="sin &#8594;">
-                <produce method="sinus" lib="a"/>
+                <handle case="product" method="sinus" lib="a"/>
             </nob>
 
             <nob name="cos"
                 decor-head-text=""
                 decor-tail-text-right="&#8592; cos"
                 decor-tail-text-left="cos &#8594;">
-                <produce method="cosinus" lib="a"/>
+                <handle case="product" method="cosinus" lib="a"/>
             </nob>
 
             <nob name="log"
                 decor-head-text=""
                 decor-tail-text-right="&#8592; log"
                 decor-tail-text-left="log &#8594;">
-                <produce method="logarithm" lib="a"/>
+                <handle case="product" method="logarithm" lib="a"/>
             </nob>
 
             <nob name="sqrt"
                 decor-head-text=""
                 decor-tail-text-right="&#8592; &#8730;"
                 decor-tail-text-left="&#8730; &#8594;">
-                <produce method="radic" lib="a"/>
+                <handle case="product" method="radic" lib="a"/>
             </nob>
 
             <nob name="phi"
@@ -88,7 +113,7 @@
                     </content>
                 </init>
 
-                <produce method="trans" lib="a"/>
+                <handle case="product" method="trans" lib="a"/>
             </nob>
         </nob-class>
 

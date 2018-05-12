@@ -1,22 +1,31 @@
 // Divsense Calculator Producer
 
 export divideBy, sub, summa, prod, sinus, cosinus,
-       logarithm, radic, percent, trans
+       logarithm, radic, percent, trans, asNumber
 
 import 'math'
+import 'number'
 
 toPrecision = invoker(1, 'toPrecision')
 
-result = value -> ({value})
-
 pvalue = map(prop('value'))
+ptype = map(prop('type'))
+textToNumber = toNumber . prop('text')
 
-outp = f -> (result . f . pvalue)
+validInputs = all(equals('number')) . ptype
 
-onearg = f -> outp( toPrecision(4) . f . head )
+typeErrors = objOf('errors')
+            . map(x -> {nid: prop('nid', x), type: 'node-pop-up', message: 'input must a number'})
+            . filter(not . equals('number') . prop('type'))
 
-cumulative = f -> inputs -> {
-    xs = pvalue(inputs)
+result = value -> ({product:{value, type:'number'}})
+
+outp = f -> ifElse(validInputs, (result . f . pvalue), typeErrors) . prop('inputs')
+
+onearg = f -> outp( toPrecision(4) . f . head . prop('inputs') )
+
+cumulative = f -> x -> {
+    xs = pvalue(x)
 
     return result(reduce(f, head(xs), tail(xs)))
 }
@@ -24,7 +33,7 @@ cumulative = f -> inputs -> {
 divideBy = cumulative( divide )
 sub = cumulative( subtract )
 
-// summa :: [{value::Number}] -> Number
+// summa :: [{value::Number, type::String}] -> Number
 summa = outp( sum )
 
 // prod :: [{value::Number}] -> Number
@@ -37,7 +46,7 @@ logarithm = onearg(log)
 radic = onearg(sqrt)
 
 // percent :: [{value::Number}] -> Number
-percent = inputs -> {
+percent = ({inputs}) -> {
     data = pvalue(inputs)
     a = nth(0, data)
     b = nth(1, data)
@@ -45,5 +54,7 @@ percent = inputs -> {
     return result( a/b * 100 )
 }
 
-trans = head
+trans = assoc('type', 'number') . head . prop('inputs')
+
+asNumber = result . textToNumber . prop('node')
 
